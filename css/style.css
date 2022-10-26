@@ -24,6 +24,14 @@ body {
   background-color: black;
 }
 
+.hidden {
+  display:none;
+}
+.active {
+  display:block
+}
+
+
 .slider {
   float: left;
   width: 100%;

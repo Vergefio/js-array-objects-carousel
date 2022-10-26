@@ -10,6 +10,8 @@ const prev = document.querySelector('.prev');
 
 const carousel = [
   {
+    titolo: 'lorem',
+    descrizione: 'lorem',
     img: "http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg"
   },
   {
@@ -26,7 +28,40 @@ const carousel = [
   },
 ]
 
-carousel.forEach((element) => {
-  console.log(element)
+carousel.forEach((carouselImg) => {
+  slider.innerHTML += `
+  <div class="slide hidden">
+    <img class="item active"
+    src="${carouselImg.img}"
+    alt=""> 
+    <h3>${carouselImg.titolo}</h3>
+    <p>${carouselImg.descrizione}></p>
+    </div>
+  `
 }
+
 );
+
+// indice della slide attiva
+let activeIndex = 0;
+// ci prendiamo l'array di elementi con classe slide presente nell'html
+const slideItems = document.getElementsByClassName('slide');
+
+// togliamo la classe hidden al primo elemento e gli aggiungiamo la classe active
+slideItems[activeIndex].classList.remove('hidden')
+slideItems[activeIndex].classList.remove('active')
+
+// quando clicchi sul bottone "indietro" diminuisci di uno activeIndex > aggiungi una classe di visibilita' all'elemento del DOM attivo e toglila a quello precedente
+
+//al click di next
+next.addEventListener('click', function () {
+  //aggiungiamo la classe hidden all'elemento corrente
+  slideItems[activeIndex].classList.remove('active')
+  slideItems[activeIndex].classList.add('hidden')
+  //avanziamo di un elemento
+  activeIndex++;
+  //e rendiamo visibile il nuovo elemento
+  slideItems[activeIndex].classList.remove('hidden')
+  slideItems[activeIndex].classList.add('active')
+
+})
