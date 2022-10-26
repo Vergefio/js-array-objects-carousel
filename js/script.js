@@ -3,6 +3,10 @@
 // Ogni elemento deve avere un titolo, una descrizione e il riferimento ad una immagine.
 
 //array di oggetti
+const slider = document.querySelector('.slider');
+const thumb = document.querySelector('.thumb');
+const next = document.querySelector('.next');
+const prev = document.querySelector('.prev');
 
 const carousel = [
   {
