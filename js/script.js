@@ -26,3 +26,7 @@ const carousel = [
   },
 ]
 
+carousel.forEach((element) => {
+  console.log(element)
+}
+);
